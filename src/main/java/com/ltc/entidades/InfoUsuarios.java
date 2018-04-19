@@ -6,8 +6,6 @@
 package com.ltc.entidades;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,7 +43,7 @@ public class InfoUsuarios implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "info_usuarios_id")
-    private BigDecimal infoUsuariosId;
+    private Integer infoUsuariosId;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
@@ -74,7 +72,7 @@ public class InfoUsuarios implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "usuarios_id_referido")
-    private BigInteger usuariosIdReferido;
+    private Integer usuariosIdReferido;
     @JoinColumn(name = "info_usuarios_id_usuario", referencedColumnName = "usuarios_id")
     @ManyToOne(optional = false)
     private Usuarios infoUsuariosIdUsuario;
@@ -82,11 +80,11 @@ public class InfoUsuarios implements Serializable {
     public InfoUsuarios() {
     }
 
-    public InfoUsuarios(BigDecimal infoUsuariosId) {
+    public InfoUsuarios(Integer infoUsuariosId) {
         this.infoUsuariosId = infoUsuariosId;
     }
 
-    public InfoUsuarios(BigDecimal infoUsuariosId, String infoUsuariosUsername, String infoUsuariosNombres, String infoUsuariosPass, String infoUsuariosWallet, String infoUsuariosEmail, BigInteger usuariosIdReferido) {
+    public InfoUsuarios(Integer infoUsuariosId, String infoUsuariosUsername, String infoUsuariosNombres, String infoUsuariosPass, String infoUsuariosWallet, String infoUsuariosEmail, Integer usuariosIdReferido) {
         this.infoUsuariosId = infoUsuariosId;
         this.infoUsuariosUsername = infoUsuariosUsername;
         this.infoUsuariosNombres = infoUsuariosNombres;
@@ -96,11 +94,11 @@ public class InfoUsuarios implements Serializable {
         this.usuariosIdReferido = usuariosIdReferido;
     }
 
-    public BigDecimal getInfoUsuariosId() {
+    public Integer getInfoUsuariosId() {
         return infoUsuariosId;
     }
 
-    public void setInfoUsuariosId(BigDecimal infoUsuariosId) {
+    public void setInfoUsuariosId(Integer infoUsuariosId) {
         this.infoUsuariosId = infoUsuariosId;
     }
 
@@ -144,11 +142,11 @@ public class InfoUsuarios implements Serializable {
         this.infoUsuariosEmail = infoUsuariosEmail;
     }
 
-    public BigInteger getUsuariosIdReferido() {
+    public Integer getUsuariosIdReferido() {
         return usuariosIdReferido;
     }
 
-    public void setUsuariosIdReferido(BigInteger usuariosIdReferido) {
+    public void setUsuariosIdReferido(Integer usuariosIdReferido) {
         this.usuariosIdReferido = usuariosIdReferido;
     }
 

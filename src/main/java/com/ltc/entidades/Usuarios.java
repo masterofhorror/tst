@@ -6,21 +6,15 @@
 package com.ltc.entidades;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -42,62 +36,51 @@ public class Usuarios implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "usuarios_id")
-    private BigDecimal usuariosId;
+    private Integer usuariosId;
     @Basic(optional = false)
     @NotNull
     @Column(name = "usuarios_estado")
-    private BigInteger usuariosEstado;
+    private Integer usuariosEstado;
     @Basic(optional = false)
     @NotNull
     @Column(name = "usuarios_tipo")
-    private BigInteger usuariosTipo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "infoUsuariosIdUsuario")
-    private List<InfoUsuarios> infoUsuariosList;
+    private Integer usuariosTipo;
 
     public Usuarios() {
     }
 
-    public Usuarios(BigDecimal usuariosId) {
+    public Usuarios(Integer usuariosId) {
         this.usuariosId = usuariosId;
     }
 
-    public Usuarios(BigDecimal usuariosId, BigInteger usuariosEstado, BigInteger usuariosTipo) {
+    public Usuarios(Integer usuariosId, Integer usuariosEstado, Integer usuariosTipo) {
         this.usuariosId = usuariosId;
         this.usuariosEstado = usuariosEstado;
         this.usuariosTipo = usuariosTipo;
     }
 
-    public BigDecimal getUsuariosId() {
+    public Integer getUsuariosId() {
         return usuariosId;
     }
 
-    public void setUsuariosId(BigDecimal usuariosId) {
+    public void setUsuariosId(Integer usuariosId) {
         this.usuariosId = usuariosId;
     }
 
-    public BigInteger getUsuariosEstado() {
+    public Integer getUsuariosEstado() {
         return usuariosEstado;
     }
 
-    public void setUsuariosEstado(BigInteger usuariosEstado) {
+    public void setUsuariosEstado(Integer usuariosEstado) {
         this.usuariosEstado = usuariosEstado;
     }
 
-    public BigInteger getUsuariosTipo() {
+    public Integer getUsuariosTipo() {
         return usuariosTipo;
     }
 
-    public void setUsuariosTipo(BigInteger usuariosTipo) {
+    public void setUsuariosTipo(Integer usuariosTipo) {
         this.usuariosTipo = usuariosTipo;
-    }
-
-    @XmlTransient
-    public List<InfoUsuarios> getInfoUsuariosList() {
-        return infoUsuariosList;
-    }
-
-    public void setInfoUsuariosList(List<InfoUsuarios> infoUsuariosList) {
-        this.infoUsuariosList = infoUsuariosList;
     }
 
     @Override
